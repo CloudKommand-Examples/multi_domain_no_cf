@@ -60,6 +60,19 @@
             "website_configuration": {
                 "redirect_to": "$DOMAIN_NAME_1",
                 "redirect_protocol": "http"
+            },
+            "bucket_policy": {
+                "Version": "2012-10-17",
+                "Id": "BucketPolicy",
+                "Statement": [
+                    {
+                        "Sid": "PublicReadForGetBucketObjects",
+                        "Effect": "Allow",
+                        "Principal": "*",
+                        "Action": "s3:GetObject",
+                        "Resource": "$SELF$/*"
+                    }
+                ]
             }
         },
         "record": {
